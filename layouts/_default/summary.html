@@ -3,9 +3,20 @@
         <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
         <h1 class="catalogue-title">{{ .Title }}</h1>
         <div class="catalogue-line"></div>
-
         <p>
-            {{ if isset .Params "summary" }}{{ .Params.Summary | markdownify }}{{ else }}{{ .Summary }}{{ end }}
+            {{- if isset .Params "summary" }}
+                {{- .Params.Summary | markdownify }}
+            {{- else }}
+                {{- .Summary }}
+            {{- end }}
         </p>
+
+        {{- if isset .Params "tags" }}
+        <p>
+            {{- range .Params.tags }}
+            <em>#{{ . }}</em>
+            {{- end }}
+        </p>
+        {{- end }}
     </div>
 </a>

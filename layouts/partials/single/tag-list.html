@@ -1,0 +1,4 @@
+{{- range .Params.tags }}
+<a href="{{ . | lower | printf "/tags/%s" |  relLangURL }}">#
+{{- . | humanize | safeHTML }}</a>
+{{- end }}

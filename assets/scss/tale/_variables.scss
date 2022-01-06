@@ -10,10 +10,12 @@ $blue: #4a9ae1;
 $shadow-color: rgba(0, 0, 0, .2);
 $code-color: #bf616a;
 
+$container-width: 800px;
+
 // Fonts
 $serif-primary: 'Cormorant Garamond', Georgia, 'Times New Roman', Times, serif;
 $serif-secondary: 'Cormorant Garamond', Georgia, 'Times New Roman', Times, serif;
-$sans-serif: 'Fira Sans', Tahoma, Geneva, Verdana, sans-serif;
+$sans-serif: 'Fira Sans', sans-serif;
 $monospaced: monospace;
 
 @mixin box-sizing($type: border-box) {

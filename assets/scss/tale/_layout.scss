@@ -1,7 +1,6 @@
 .container {
   margin: 0 auto;
-  max-width: 800px;
-  width: 80%;
+  max-width: $container-width;
 }
 
 main,
@@ -9,8 +8,8 @@ footer,
 .nav-container {
   display: block;
   margin: 0 auto;
-  max-width: 800px;
-  width: 80%;
+  padding: 0 1rem;
+  max-width: $container-width;
 }
 
 .nav {
@@ -90,3 +89,4 @@ footer {
     font-size: .8rem;
   }
 }
+

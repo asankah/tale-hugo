@@ -3,19 +3,15 @@
 
   &-info {
     color: $default-tint;
-    font-family: $serif-secondary;
+    font-family: $sans-serif;
     letter-spacing: 0.5px;
     text-align: center;
-
-    span {
-      font-style: italic;
-    }
   }
 
   &-title {
     color: $default-shade;
     font-family: $sans-serif;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 1rem 0;
     text-align: center;
   }
@@ -61,3 +57,4 @@
     margin: 0;
   }
 }
+

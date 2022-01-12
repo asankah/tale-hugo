@@ -15,8 +15,14 @@ body {
 
 html {
   font-family: $serif-primary;
-  font-size: 16pt;
   overflow-y: scroll;
+
+  // The font-size selected here defines what 1rem means. All other font sizes
+  // should be in rems.
+  font-size: $content-font-size;
+  @media (max-width: $small-device-width) {
+    font-size: $small-content-font-size;
+  }
 }
 
 body {

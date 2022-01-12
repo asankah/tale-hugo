@@ -11,6 +11,6 @@
     {{- end }}
 
     {{- if isset .Params "tags" }}
-    <br>{{ partial "single/tag-list.html" . }}
+    | {{ partial "single/tag-list.html" . }}
     {{- end }}
 </div>

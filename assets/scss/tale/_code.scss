@@ -12,6 +12,12 @@ code {
   white-space: pre-wrap;
 }
 
+div.sourceCode {
+  background-color: $grey-3;
+  margin: 0 2rem;
+  font-size: 0.8rem;
+}
+
 pre {
   margin: 0 0 1rem;
 }

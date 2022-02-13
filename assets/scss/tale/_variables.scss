@@ -22,7 +22,7 @@ $small-content-font-size: 12pt;
 $serif-primary: 'Cormorant Garamond', Georgia, 'Times New Roman', Times, serif;
 $serif-secondary: 'Cormorant Garamond', Georgia, 'Times New Roman', Times, serif;
 $sans-serif: 'Fira Sans', sans-serif;
-$monospaced: monospace;
+$monospaced: 'Fira Code', monospace;
 
 @mixin box-sizing($type: border-box) {
   -webkit-box-sizing: $type;

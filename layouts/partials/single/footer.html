@@ -1,5 +1,26 @@
-<!-- 
-This is a placeholder partial for the post footer. Create a file called
-layouts/partials/single/footer.html in your own site to overwrite this
-placeholder.
--->
+{{ if (and (eq .Section "blog") .IsPage) -}}
+{{ with ( shuffle .Site.RegularPages | first 5 ) }}
+<nav class="suggested">
+  <h2 class="suggested">More articles from this blog</h4>
+  <ul>
+{{- range where . "RelPermalink" "!=" $.Page.RelPermalink }}
+        <li>
+                <h3 class="suggested title">
+                        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                </h3>
+                <p>{{ .Summary }}</p>
+        </li>
+{{- end }}
+  </ul>
+</nav>
+{{ end }}
+<h4>Comment</h4>
+<script src="https://utteranc.es/client.js"
+        repo="asankah/blog-comments"
+        issue-term="title"
+        label="PublicComment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}

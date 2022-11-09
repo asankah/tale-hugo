@@ -1,0 +1,9 @@
+{{ $katexCss := resources.Get "_katex/katex.min.css" | resources.Fingerprint -}}
+<link rel="stylesheet" href="{{ $katexCss.Permalink }}" integrity="{{ $katexCss.Data.Integrity }}">
+
+{{- $katexJs := resources.Get "_katex/katex.min.js" | resources.Fingerprint -}}
+<script src="{{ $katexJs.Permalink }}" integrity="{{ $katexJs.Data.Integrity }}"></script>
+
+{{- $katexLoader := resources.Get "js/render-katex.ts" | js.Build | babel | minify -}}
+<script src="{{ $katexLoader.Permalink }}" async></script>
+

@@ -15,7 +15,7 @@
 		{{- $cssOptions		:= cond ($inServerMode) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath" $cssTarget "outputStyle" "compressed") }}
 		{{- $style			:= resources.Get "scss/tale.scss" | toCSS $cssOptions }}
   		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-		{{- $fontsCss := resources.Get "css/fonts.css" | resources.Minify }}
+		{{- $fontsCss := resources.Get "scss/fonts.css" | resources.Minify }}
 		<link rel="stylesheet" href="{{ $fontsCss.RelPermalink }}">
 		{{- $formattingCss := resources.Get "css/formatting.scss" | resources.ToCSS | minify }}
 		<link rel="stylesheet" href="{{ $formattingCss.RelPermalink }}">

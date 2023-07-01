@@ -14,7 +14,15 @@
 		{{- $cssTarget		:= "css/style.css" }}
 		{{- $cssOptions		:= cond ($inServerMode) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath" $cssTarget "outputStyle" "compressed") }}
 		{{- $style			:= resources.Get "scss/tale.scss" | toCSS $cssOptions }}
-  	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+		{{- $fontsCss := resources.Get "scss/fonts.css" | resources.Minify }}
+		<link rel="stylesheet" href="{{ $fontsCss.RelPermalink }}">
+		{{- $formattingCss := resources.Get "css/formatting.scss" | resources.ToCSS | minify }}
+		<link rel="stylesheet" href="{{ $formattingCss.RelPermalink }}">
+		{{ range .Site.Params.css -}}
+			{{- $r := resources.Get . | minify -}}
+			<link rel="stylesheet" href="{{ $r.RelPermalink }}">
+		{{ end -}}
 
 		<!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">

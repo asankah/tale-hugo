@@ -1,5 +1,6 @@
 {{ if (and (eq .Section "blog") .IsPage) -}}
 {{ with ( shuffle .Site.RegularPages | first 5 ) }}
+<hr />
 <nav class="suggested">
   <h2 class="suggested">More articles from this blog</h4>
   <ul>

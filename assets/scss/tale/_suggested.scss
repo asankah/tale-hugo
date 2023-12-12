@@ -1,10 +1,15 @@
 nav.suggested {
+    font-size: $small-content-font-size;
+
     ul {
         list-style: none;
     }
     
     p {
-        font-size: smaller;
+        font-size: $small-content-font-size;
+    }
+
+    h2 {
     }
 
     h3 {

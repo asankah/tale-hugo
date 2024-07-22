@@ -1,9 +1,12 @@
-{{ $katexCss := resources.Get "_katex/katex.min.css" | resources.Fingerprint -}}
-<link rel="stylesheet" href="{{ $katexCss.Permalink }}" integrity="{{ $katexCss.Data.Integrity }}">
+{{ with resources.Get "_katex/katex.min.css" | resources.Fingerprint -}}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
 
-{{- $katexJs := resources.Get "_katex/katex.min.js" | resources.Fingerprint -}}
-<script src="{{ $katexJs.Permalink }}" integrity="{{ $katexJs.Data.Integrity }}"></script>
+{{- with resources.Get "_katex/katex.min.js" | resources.Fingerprint -}}
+  <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+{{- end }}
 
-{{- $katexLoader := resources.Get "js/render-katex.ts" | js.Build | babel | minify -}}
-<script src="{{ $katexLoader.Permalink }}" async></script>
+{{- with resources.Get "js/render-katex.ts" | js.Build | babel | minify -}}
+  <script src="{{ .RelPermalink }}" async></script>
+{{- end }}
 

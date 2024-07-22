@@ -1,28 +1,23 @@
 <div class="social share">
-  <a href="https://twitter.com/intent/tweet?
-      {{- querify "text" .Title "url" .Permalink "via" "asankah" | safeURL -}}
-      "
-     aria-label="Share on Twitter" target="_blank" rel="noopener"
-      >
-    <img src="/images/twitter.svg" alt="Share on Twitter">
-  </a>
+  {{ with querify "text" .Title "url" .Permalink "via" "asankah" | safeURL -}}
+    <a href="https://twitter.com/intent/tweet?{{ . }}" aria-label="Share on Twitter" target="_blank" rel="noopener">
+      <img src="/images/twitter.svg" alt="Share on Twitter">
+    </a>
+  {{- end }}
 
-  {{ $emailSubject := printf "%s - %s" .Title .Site.Title }}
-  {{ $.Scratch.Add "eb" (println "Via https://twitter.com/asankah") }}
-  {{ $.Scratch.Add "eb" (println "") }}
-  {{ $.Scratch.Add "eb" (println .Summary ) }}
-  {{ $.Scratch.Add "eb" (println "") }}
-  {{ $.Scratch.Add "eb" (printf "Read more at %s" .Permalink ) }}
-  {{ $.Scratch.Add "eb" (println "") }}
-  {{ $emailBody := $.Scratch.Get "eb" }}
-  <a href="mailto:?
-      {{- querify "subject" $emailSubject "body" $emailBody | safeURL -}}
-      "
-     aria-label="Share via Email" target="_blank" rel="noopener"
-      >
-    <img src="/images/mail.svg" alt="Share via Email">
-  </a>
-
+  {{- $emailSubject := printf "%s - %s" .Title .Site.Title }}
+  {{- $.Scratch.Add "eb" (println "Via https://twitter.com/asankah") }}
+  {{- $.Scratch.Add "eb" (println "") }}
+  {{- $.Scratch.Add "eb" (println .Summary ) }}
+  {{- $.Scratch.Add "eb" (println "") }}
+  {{- $.Scratch.Add "eb" (printf "Read more at %s" .Permalink ) }}
+  {{- $.Scratch.Add "eb" (println "") }}
+  {{- $emailBody := $.Scratch.Get "eb" }}
+  {{- with querify "subject" $emailSubject "body" $emailBody | safeURL }}
+    <a href="mailto:?{{ . }}" aria-label="Share via Email" target="_blank" rel="noopener">
+      <img src="/images/mail.svg" alt="Share via Email">
+    </a>
+  {{- end }}
   <a href="{{ .Permalink }}" aria-label="Permanent link to post">
     <img src="/images/link-2.svg" alt="Permanent link to post">
   </a>
